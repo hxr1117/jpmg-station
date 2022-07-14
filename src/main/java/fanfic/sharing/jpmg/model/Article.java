@@ -10,16 +10,19 @@ public class Article {
     private String content;
     private Boolean adult;
     private String authorId;
-    private int likes;
+    private int likes = 0;
     private String summary;
 
-    public Article(String id, String title, String content, Boolean adult, String authorId, int likes, String summary) {
+    private String postDate;
+    private String updateDate;
+
+    public Article(String id, String title, String content, Boolean adult, String authorId, String summary, String postDate) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.adult = adult;
         this.authorId = authorId;
-        this.likes = likes;
         this.summary = summary;
+        this.postDate = postDate;
     }
 }
