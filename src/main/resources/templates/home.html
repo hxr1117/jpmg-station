@@ -6,10 +6,82 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex-grow: 1;
+        }
+
+        .carousel-bg {
+            min-height: 400px;
+        }
+
+        .carousel-summary {
+            padding-top: 18px;
+        }
+    </style>
 </head>
 <body class="text-center">
+<!--Header-->
 <div th:insert="fragments/header"></div>
-<h1>Hi!!! Hope you can enjoy here!</h1>
+<!--Announcement-->
+<div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-bg d-block w-100 bg-secondary">
+                    <div class="carousel-summary text-white">
+                        <h1>公告1</h1>
+                        <p>内容</p>
+                        <a href="" class="btn btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-bg d-block w-100 bg-secondary">
+                    <div class="carousel-summary text-white">
+                        <h1>公告1</h1>
+                        <p>内容</p>
+                        <a href="" class="btn btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-bg d-block w-100 bg-secondary">
+                    <div class="carousel-summary text-white">
+                        <h1>公告1</h1>
+                        <p>内容</p>
+                        <a href="" class="btn btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!--Footer-->
 <div th:insert="fragments/footer"></div>
 </body>
 <!-- JavaScript Bundle with Popper -->

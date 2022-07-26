@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JPMG Station</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #e9efef;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            padding-top: 18px;
+            flex-grow: 1;
+
+        }
+
+        .article {
+            padding: 18px;
+            min-height: 150px;
+            border: 1px solid rgba(0, 0, 0, 0.09);
+            border-radius: 0.4rem;
+        }
+
+        .article a {
+            text-decoration: none;
+        }
+
+        .article-summary {
+            padding-top: 6px;
+        }
+       /*.article-footer {*/
+       /*    text-align: right;*/
+       /*}*/
+    </style>
+</head>
+<body>
+<!--Header-->
+<div th:insert="fragments/header"></div>
+<!--List Content-->
+<div class="container">
+    <div class="row g-6">
+        <!--        <div class="col-lg-4 col-md-2">-->
+        <!--            <h2>过滤</h2>-->
+        <!--        </div>-->
+        <div class="articles col-md-10 col-lg-8 vstack gap-4">
+            <h2 class="text-center">作品列表</h2>
+            <div class="article bg-light">
+                <div class="article-title d-flex align-items-center justify-content-between">
+                    <a class="h4 mb-0" href="#">
+                        <h4>日向选手采访文稿</h4>
+                    </a>
+                    <div class="mb-0 badge text-bg-danger">分级: 成年</div>
+                </div>
+                <div class="article-body">
+                    <div class="article-info d-flex">
+                        <div class="small">排球少年</div>
+                        <div class="small">影日</div>
+                    </div>
+                    <div class="article-summary">这是一篇关于成年后的日向选手采访稿。</div>
+                </div>
+                <div class="article-footer d-flex justify-content-end">
+                    <!--显示点赞/订阅/回复数量-->
+                    点赞: 45 收藏: 0
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<div th:insert="fragments/footer"></div>
+</body>
+</html>

@@ -10,4 +10,14 @@ public class HomeController {
     public String homePage(Model model) {
         return "home";
     }
+    
+    @GetMapping("/signUp")
+    public String signUpPage() {
+        return "signUp";
+    }
+
+    @GetMapping("/signIn")
+    public String signInPage() {
+        return "signIn";
+    }
 }

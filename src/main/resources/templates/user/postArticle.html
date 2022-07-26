@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>发布文章</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.tiny.cloud/1/lbdg94zl3wdk66hyg730fo5ggvma6jvpuxf7fs1nj6wmlrpk/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            plugins: 'lists, link, image, media',
+            toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link | removeformat help',
+            menubar: false,
+            setup: (editor) => {
+                // Apply the focus effect
+                editor.on("init", () => {
+                    editor.getContainer().style.transition = "border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out";
+                });
+                editor.on("focus", () => {
+                    (editor.getContainer().style.boxShadow = "0 0 0 .2rem rgba(0, 123, 255, .25)"),
+                        (editor.getContainer().style.borderColor = "#80bdff");
+                });
+                editor.on("blur", () => {
+                    (editor.getContainer().style.boxShadow = ""),
+                        (editor.getContainer().style.borderColor = "");
+                });
+            },
+        });
+    </script>
+    <style>
+        body {
+            min-height: 101%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .container {
+            margin-top: 15px;
+        }
+
+        .form-label {
+            padding-bottom: 10px;
+        }
+
+        .auto-saved {
+            text-align: right;
+        }
+
+        .btn-submit a {
+            min-width: 100px;
+        }
+
+        .container {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+<!--Header-->
+<div th:insert="fragments/header"></div>
+<!--Article Form-->
+<div class="container">
+    <div class="row g-6">
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">统计</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">字数</h6>
+                    </div>
+                    <span class="text-muted">123450</span>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="col-md-7 col-lg-8">
+            <form action="">
+                <div class="row g-3">
+                    <h4 class="mb-3">发布文章</h4>
+                    <div class="col-12">
+                        <label for="title" class="form-label">标题</label>
+                        <input type="text" id="title" class="form-control" required="required">
+                    </div>
+                    <div class="col-12">
+                        <label for="ship" class="form-label">CP(可选)</label>
+                        <input type="text" id="ship" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <label for="fandom" class="form-label">原作品名称</label>
+                        <input type="text" id="fandom" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <label for="adult" class="form-label">分级</label>
+                        <select class="form-select" id="adult" aria-label="Default select example" required="required">
+                            <option selected>请选择分级</option>
+                            <option value="1">成年</option>
+                            <option value="2">未成年</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="summary" class="form-label">简介(可选)</label>
+                        <textarea id="summary" class="form-control" style="min-height: 100px"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label for="editor" class="form-label">内容</label>
+                        <textarea id="editor" class="form-control" style="min-height: 350px" required="required"></textarea>
+                    </div>
+
+                    <span class="text-muted auto-saved">已自动保存于12:45</span>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end btn-submit">
+                        <a class="btn btn-outline-dark" type="button" href="#">保存草稿</a>
+                        <a class="btn btn-primary" type="button" href="#">发布</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<div th:insert="fragments/footer"></div>
+</body>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"
+        integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA=="
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</html>
